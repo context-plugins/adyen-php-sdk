@@ -1,0 +1,27 @@
+
+# Transaction Rule Source 2
+
+Contains information about the resource to which the transaction rule applies.
+
+## Structure
+
+`TransactionRuleSource2`
+
+## Fields
+
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `id` | `?string` | Optional | ID of the resource, when applicable. | getId(): ?string | setId(?string id): void |
+| `type` | `?string` | Optional | Indicates the type of resource for which the transaction rule is defined.<br><br>Possible values:<br><br>* **PaymentInstrumentGroup**<br><br>* **PaymentInstrument**<br><br>* **BalancePlatform**<br><br>* **EntityUsageConfiguration**<br><br>* **PlatformRule**: The transaction rule is a platform-wide rule imposed by Adyen. | getType(): ?string | setType(?string type): void |
+
+## Example
+
+```php
+use AdyenLib\Models\Builders\TransactionRuleSource2Builder;
+
+$transactionRuleSource2 = TransactionRuleSource2Builder::init()
+    ->id('id8')
+    ->type('type2')
+    ->build();
+```
+

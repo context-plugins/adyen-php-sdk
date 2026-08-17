@@ -1,0 +1,28 @@
+
+# Terminal Connectivity Cellular
+
+## Structure
+
+`TerminalConnectivityCellular`
+
+## Fields
+
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `iccid` | `?string` | Optional | The integrated circuit card identifier (ICCID) of the primary SIM card in the terminal. | getIccid(): ?string | setIccid(?string iccid): void |
+| `iccid2` | `?string` | Optional | The integrated circuit card identifier (ICCID) of the secondary SIM card in the terminal, typically used for a [third-party SIM card](https://docs.adyen.com/point-of-sale/design-your-integration/network-and-connectivity/cellular-failover/#using-a-third-party-sim-card). | getIccid2(): ?string | setIccid2(?string iccid2): void |
+| `status` | [`?string(Status31Enum)`](../../doc/models/status-31-enum.md) | Optional | On a terminal that supports 3G or 4G connectivity, indicates the status of the primary SIM card in the terminal. | getStatus(): ?string | setStatus(?string status): void |
+
+## Example
+
+```php
+use AdyenLib\Models\Builders\TerminalConnectivityCellularBuilder;
+use AdyenLib\Models\Status31Enum;
+
+$terminalConnectivityCellular = TerminalConnectivityCellularBuilder::init()
+    ->iccid('iccid8')
+    ->iccid2('iccid26')
+    ->status(Status31Enum::READYFORACTIVATION)
+    ->build();
+```
+

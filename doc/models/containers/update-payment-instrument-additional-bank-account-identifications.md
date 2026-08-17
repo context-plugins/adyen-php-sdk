@@ -1,0 +1,25 @@
+
+# Update Payment Instrument Additional Bank Account Identifications
+
+## Data Type
+
+`IbanAccountIdentification`
+
+## Cases
+
+| Type |
+|  --- |
+| [`IbanAccountIdentification`](../../../doc/models/iban-account-identification.md) |
+
+## IbanAccountIdentification
+
+### Initialization Code
+
+#### Example
+
+```php
+$value = IbanAccountIdentificationBuilder::init(
+    'iban6'
+)->build();
+```
+

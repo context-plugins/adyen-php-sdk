@@ -1,0 +1,26 @@
+
+# Sale Terminal Data
+
+Information related to the software and hardware features of the Sale Terminal.
+Sent in the Login Request if a Sale Terminal is involved in the login. In other messages, sent when a logical device is out of order (SaleCapabilities) or when other data have changed or were missing in the Login.
+
+## Structure
+
+`SaleTerminalData`
+
+## Fields
+
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `totalsGroupID` | `?string` | Optional | Identification of a group of transactions on a POI Terminal, having the same Sale features.<br>Could be used to group POI for reconciliation or other purpose defined by the Sale System. The default value is assigned by the Login Request.<br><br>**Constraints**: *Pattern*: `^.{1,16}$` | getTotalsGroupID(): ?string | setTotalsGroupID(?string totalsGroupID): void |
+
+## Example
+
+```php
+use AdyenLib\Models\Builders\SaleTerminalDataBuilder;
+
+$saleTerminalData = SaleTerminalDataBuilder::init()
+    ->totalsGroupID('TotalsGroupID4')
+    ->build();
+```
+

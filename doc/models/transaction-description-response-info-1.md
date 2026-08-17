@@ -1,0 +1,28 @@
+
+# Transaction Description Response Info 1
+
+Information regarding the transaction description.
+
+## Structure
+
+`TransactionDescriptionResponseInfo1`
+
+## Fields
+
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `doingBusinessAsName` | `?string` | Optional | The text to be shown on the shopper's bank statement.<br>We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.<br>Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , ' _ - ? + * /**.<br><br>**Constraints**: *Maximum Length*: `22` | getDoingBusinessAsName(): ?string | setDoingBusinessAsName(?string doingBusinessAsName): void |
+| `type` | [`?string(Type8Enum)`](../../doc/models/type-8-enum.md) | Optional | The type of transaction description you want to use:<br><br>- **fixed**: The transaction description set in this request is used for all payments with this payment method.<br>- **append**: The transaction description set in this request is used as a base for all payments with this payment method. The [transaction description set in the request to process the payment](https://docs.adyen.com/api-explorer/Checkout/70/post/sessions#request-shopperStatement) is appended to this base description. Note that if the combined length exceeds 22 characters, banks may truncate the string.<br>- **dynamic**: Only the [transaction description set in the request to process the payment](https://docs.adyen.com/api-explorer/Checkout/70/post/sessions#request-shopperStatement) is used for payments with this payment method.<br><br>**Default**: `Type8Enum::DYNAMIC` | getType(): ?string | setType(?string type): void |
+
+## Example
+
+```php
+use AdyenLib\Models\Builders\TransactionDescriptionResponseInfo1Builder;
+use AdyenLib\Models\Type8Enum;
+
+$transactionDescriptionResponseInfo1 = TransactionDescriptionResponseInfo1Builder::init()
+    ->doingBusinessAsName('doingBusinessAsName2')
+    ->type(Type8Enum::DYNAMIC)
+    ->build();
+```
+

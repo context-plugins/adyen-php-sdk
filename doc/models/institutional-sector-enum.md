@@ -1,0 +1,39 @@
+
+# Institutional Sector Enum
+
+The institutional sector the organization operates within.
+
+## Enumeration
+
+`InstitutionalSectorEnum`
+
+## Fields
+
+| Name |
+|  --- |
+| `NONFINANCIALCORPORATION` |
+| `CENTRALBANK` |
+| `CREDITINSTITUTIONS` |
+| `DEPOSITTAKINGCORPORATIONS` |
+| `MONEYMARKETFUNDS` |
+| `NONMMFINVESTMENTFUNDS` |
+| `FINANCIALVEHICLECORPORATION` |
+| `OTHERFINANCIALINTERMEDIARIES` |
+| `FINANCIALAUXILIARIES` |
+| `CAPTIVEFINANCIALINSTITUTIONSANDMONEYLENDERS` |
+| `INSURANCECORPORATIONS` |
+| `PENSIONFUNDS` |
+| `CENTRALGOVERNMENT` |
+| `STATEGOVERNMENT` |
+| `LOCALGOVERNMENT` |
+| `SOCIALSECURITYFUNDS` |
+| `NONPROFITINSTITUTIONSSERVINGHOUSEHOLDS` |
+
+## Example
+
+```php
+use AdyenLib\Models\InstitutionalSectorEnum;
+
+$institutionalSector = InstitutionalSectorEnum::DEPOSITTAKINGCORPORATIONS;
+```
+

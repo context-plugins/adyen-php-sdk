@@ -1,0 +1,23 @@
+
+# Additional Data Opi
+
+## Structure
+
+`AdditionalDataOpi`
+
+## Fields
+
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `opiIncludeTransToken` | `?string` | Optional | Optional boolean indicator. Set to **true** if you want an ecommerce transaction to return an `opi.transToken` as additional data in the response.<br><br>You can store this Oracle Payment Interface token in your Oracle Opera database. For more information and required settings, see [Oracle Opera](https://docs.adyen.com/plugins/oracle-opera#opi-token-ecommerce). | getOpiIncludeTransToken(): ?string | setOpiIncludeTransToken(?string opiIncludeTransToken): void |
+
+## Example
+
+```php
+use AdyenLib\Models\Builders\AdditionalDataOpiBuilder;
+
+$additionalDataOpi = AdditionalDataOpiBuilder::init()
+    ->opiIncludeTransToken('opi.includeTransToken6')
+    ->build();
+```
+

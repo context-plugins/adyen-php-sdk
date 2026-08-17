@@ -1,0 +1,33 @@
+
+# Generic Pm with Tdi Update Info 4
+
+Details to provide if `type` is **discover**.
+For merchants operating in Japan, request [Diners](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/paymentMethodSettings/(paymentMethodId)#request-diners) payment method instead. Discover is automatically requested, together with Diners.
+
+## Structure
+
+`GenericPmWithTdiUpdateInfo4`
+
+## Fields
+
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `transactionDescription` | [`?TransactionDescriptionInfo1`](../../doc/models/transaction-description-info-1.md) | Optional | Information regarding the transaction description.<br><br>> You cannot configure the transaction description in the test environment. | getTransactionDescription(): ?TransactionDescriptionInfo1 | setTransactionDescription(?TransactionDescriptionInfo1 transactionDescription): void |
+
+## Example
+
+```php
+use AdyenLib\Models\Builders\GenericPmWithTdiUpdateInfo4Builder;
+use AdyenLib\Models\Builders\TransactionDescriptionInfo1Builder;
+use AdyenLib\Models\Type8Enum;
+
+$genericPmWithTdiUpdateInfo4 = GenericPmWithTdiUpdateInfo4Builder::init()
+    ->transactionDescription(
+        TransactionDescriptionInfo1Builder::init()
+            ->doingBusinessAsName('doingBusinessAsName0')
+            ->type(Type8Enum::FIXED)
+            ->build()
+    )
+    ->build();
+```
+

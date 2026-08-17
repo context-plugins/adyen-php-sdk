@@ -1,0 +1,82 @@
+
+# Payment Details Response
+
+## Structure
+
+`PaymentDetailsResponse`
+
+## Fields
+
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `action` | [CheckoutThreeDS2Action](../../doc/models/checkout-three-ds-2-action.md)\|null | Optional | This is a container for one-of cases. | getAction(): ?CheckoutThreeDS2Action | setAction(?CheckoutThreeDS2Action action): void |
+| `additionalData` | `?array<string,string>` | Optional | Contains additional information about the payment. Some data fields are included only if you select them first: Go to **Customer Area** > **Developers** > **Additional data**. | getAdditionalData(): ?array | setAdditionalData(?array additionalData): void |
+| `amount` | [`?Amount26`](../../doc/models/amount-26.md) | Optional | Authorised amount in the transaction. | getAmount(): ?Amount26 | setAmount(?Amount26 amount): void |
+| `donationToken` | `?string` | Optional | Donation Token containing payment details for Adyen Giving. | getDonationToken(): ?string | setDonationToken(?string donationToken): void |
+| `fraudResult` | [`?FraudResult1`](../../doc/models/fraud-result-1.md) | Optional | The fraud result properties of the payment. | getFraudResult(): ?FraudResult1 | setFraudResult(?FraudResult1 fraudResult): void |
+| `merchantReference` | `?string` | Optional | The reference used during the /payments request. | getMerchantReference(): ?string | setMerchantReference(?string merchantReference): void |
+| `order` | [`?CheckoutOrderResponse1`](../../doc/models/checkout-order-response-1.md) | Optional | Contains updated information regarding the order in case order information was provided in the request. | getOrder(): ?CheckoutOrderResponse1 | setOrder(?CheckoutOrderResponse1 order): void |
+| `paymentMethod` | [`?PaymentResponse1`](../../doc/models/payment-response-1.md) | Optional | Details about the payment method used in the transaction.<br>Only returned if `resultCode` is **Authorised**. | getPaymentMethod(): ?PaymentResponse1 | setPaymentMethod(?PaymentResponse1 paymentMethod): void |
+| `paymentValidations` | [`?PaymentResponse2`](../../doc/models/payment-response-2.md) | Optional | The object that contains the validation outcomes.<br>Only returned if `resultCode` is **Authorised** and if you have requested a payment validation in the request. | getPaymentValidations(): ?PaymentResponse2 | setPaymentValidations(?PaymentResponse2 paymentValidations): void |
+| `pspReference` | `?string` | Optional | Adyen's 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request. | getPspReference(): ?string | setPspReference(?string pspReference): void |
+| `refusalReason` | `?string` | Optional | If the payment's authorisation is refused or an error occurs during authorisation, this field holds Adyen's mapped reason for the refusal or a description of the error. When a transaction fails, the authorisation response includes `resultCode` and `refusalReason` values.<br><br>For more information, see [Refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons). | getRefusalReason(): ?string | setRefusalReason(?string refusalReason): void |
+| `refusalReasonCode` | `?string` | Optional | Code that specifies the refusal reason. For more information, see [Authorisation refusal reasons](https://docs.adyen.com/development-resources/refusal-reasons). | getRefusalReasonCode(): ?string | setRefusalReasonCode(?string refusalReasonCode): void |
+| `resultCode` | [`?string(ResultCode1Enum)`](../../doc/models/result-code-1-enum.md) | Optional | The result of the payment. For more information, see [Result codes](https://docs.adyen.com/online-payments/payment-result-codes).<br><br>Possible values:<br><br>* **AuthenticationFinished** – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions.<br>* **AuthenticationNotRequired** – The transaction does not require 3D Secure authentication. Returned for [standalone authentication-only integrations](https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only).<br>* **Authorised** – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state.<br>* **Cancelled** – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state.<br>* **ChallengeShopper** – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions.<br>* **Error** – There was an error when the payment was being processed. The reason is given in the `refusalReason` field. This is a final state.<br>* **IdentifyShopper** – The issuer requires the shopper's device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions.<br>* **PartiallyAuthorised** – The payment has been authorised for a partial amount.<br>  This happens for card payments when the merchant supports Partial Authorisations and the cardholder has insufficient funds.<br>* **Pending** – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment.<br>* **PresentToShopper** – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment.<br>* **Received** – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments.<br>* **RedirectShopper** – Indicates the shopper should be redirected to an external web page or app to complete the authorisation.<br>* **Refused** – Indicates the payment was refused. The reason is given in the `refusalReason` field. This is a final state. | getResultCode(): ?string | setResultCode(?string resultCode): void |
+| `shopperLocale` | `?string` | Optional | The shopperLocale. | getShopperLocale(): ?string | setShopperLocale(?string shopperLocale): void |
+| `threeDS2ResponseData` | [`?ThreeDS2ResponseData1`](../../doc/models/three-ds-2-response-data-1.md) | Optional | Response of the 3D Secure 2 authentication. | getThreeDS2ResponseData(): ?ThreeDS2ResponseData1 | setThreeDS2ResponseData(?ThreeDS2ResponseData1 threeDS2ResponseData): void |
+| `threeDS2Result` | [`?ThreeDS2Result1`](../../doc/models/three-ds-2-result-1.md) | Optional | Result of the 3D Secure 2 authentication. | getThreeDS2Result(): ?ThreeDS2Result1 | setThreeDS2Result(?ThreeDS2Result1 threeDS2Result): void |
+| `threeDSPaymentData` | `?string` | Optional | When non-empty, contains a value that you must submit to the `/payments/details` endpoint as `paymentData`. | getThreeDSPaymentData(): ?string | setThreeDSPaymentData(?string threeDSPaymentData): void |
+
+## Example
+
+```php
+use AdyenLib\Models\Builders\PaymentDetailsResponseBuilder;
+use AdyenLib\Models\Builders\CheckoutThreeDS2ActionBuilder;
+use AdyenLib\Models\Builders\Amount26Builder;
+use AdyenLib\Models\Builders\FraudResult1Builder;
+use AdyenLib\Models\Builders\FraudCheckResultBuilder;
+
+$paymentDetailsResponse = PaymentDetailsResponseBuilder::init()
+    ->action(
+        CheckoutThreeDS2ActionBuilder::init()
+            ->authorisationToken('authorisationToken0')
+            ->paymentData('paymentData8')
+            ->paymentMethodType('paymentMethodType8')
+            ->subtype('subtype8')
+            ->token('token0')
+            ->build()
+    )
+    ->additionalData(
+        [
+            'key0' => 'additionalData0',
+            'key1' => 'additionalData1'
+        ]
+    )
+    ->amount(
+        Amount26Builder::init(
+            'currency2',
+            110
+        )->build()
+    )
+    ->donationToken('donationToken2')
+    ->fraudResult(
+        FraudResult1Builder::init(
+            232
+        )
+            ->results(
+                [
+                    FraudCheckResultBuilder::init(
+                        102,
+                        246,
+                        'name6'
+                    )->build(),
+                    FraudCheckResultBuilder::init(
+                        102,
+                        246,
+                        'name6'
+                    )->build()
+                ]
+            )->build()
+    )->build();
+```
+

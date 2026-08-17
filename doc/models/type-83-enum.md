@@ -1,0 +1,60 @@
+
+# Type 83 Enum
+
+The type of transfer or transaction. For example, **refund**, **payment**, **internalTransfer**, **bankTransfer**.
+
+## Enumeration
+
+`Type83Enum`
+
+## Fields
+
+| Name |
+|  --- |
+| `PAYMENT` |
+| `CAPTURE` |
+| `CAPTUREREVERSAL` |
+| `REFUND` |
+| `REFUNDREVERSAL` |
+| `CHARGEBACK` |
+| `CHARGEBACKCORRECTION` |
+| `CHARGEBACKREVERSAL` |
+| `CHARGEBACKREVERSALCORRECTION` |
+| `SECONDCHARGEBACK` |
+| `SECONDCHARGEBACKCORRECTION` |
+| `ATMWITHDRAWAL` |
+| `ATMWITHDRAWALREVERSAL` |
+| `INTERNALTRANSFER` |
+| `INTERNALDIRECTDEBIT` |
+| `MANUALCORRECTION` |
+| `INVOICEDEDUCTION` |
+| `DEPOSITCORRECTION` |
+| `RESERVEADJUSTMENT` |
+| `BANKTRANSFER` |
+| `BANKDIRECTDEBIT` |
+| `CARDTRANSFER` |
+| `MISCCOST` |
+| `PAYMENTCOST` |
+| `FEE` |
+| `LEFTOVER` |
+| `GRANT` |
+| `CAPITALFUNDSCOLLECTION` |
+| `CASHOUTINSTRUCTION` |
+| `CASHOUTFEE` |
+| `CASHOUTREPAYMENT` |
+| `CASHOUTFUNDING` |
+| `REPAYMENT` |
+| `INSTALLMENT` |
+| `INSTALLMENTREVERSAL` |
+| `BALANCEADJUSTMENT` |
+| `BALANCEROLLOVER` |
+| `BALANCEMIGRATION` |
+
+## Example
+
+```php
+use AdyenLib\Models\Type83Enum;
+
+$type83 = Type83Enum::GRANT;
+```
+
